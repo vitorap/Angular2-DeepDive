@@ -1,27 +1,53 @@
-# AlertProject
+# Alert Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
+## Overview
 
-## Development server
+The `alert-project` is a hands-on Angular practice project focused on mastering Angular components. This project includes the implementation of two custom components, `WarningAlert` and `SuccessAlert`, designed to provide a practical understanding of Angular's component architecture, styling, and templates.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Why This Project?
 
-## Code scaffolding
+The primary goal of this project was to gain practical experience with Angular, particularly in:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Creating and integrating custom components.
+- Exploring different types of component selectors.
+- Applying custom styles to components, experimenting with a retro 8-bit theme.
+- Learning to use external fonts and style encapsulation in Angular.
 
-## Build
+## Experimentation and Results
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+During the development of this project, we experimented with various aspects of Angular components:
 
-## Running unit tests
+### Components Created
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **WarningAlert**: A component displaying a warning message styled with a retro 8-bit aesthetic.
+- **SuccessAlert**: A similar component for success messages, maintaining the retro theme.
 
-## Running end-to-end tests
+### Styling
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- We used the "VT323" font from Google Fonts to achieve the retro, pixelated look.
+- Custom CSS was applied to create a distinctive 8-bit style with red and green backgrounds for warning and success messages, respectively.
+- Experimented with CSS features like `:hover` to enhance interactivity.
 
-## Further help
+### Challenges and Learning
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Understanding the importance of proper component declaration and module integration in Angular.
+- Overcoming initial difficulties with CSS application and selector specificity.
+- Gaining insights into the flexibility and power of Angular's styling encapsulation.
+
+## How to Run the Project
+
+To run the `alert-project`, follow these steps:
+
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run `npm install` to install dependencies.
+4. Execute `ng serve` to start the development server.
+5. Open `http://localhost:4200/` in your browser.
+
+## Future Improvements
+
+While the project met its initial educational objectives, future enhancements can include:
+
+- Adding more complex component interactions.
+- Exploring advanced Angular features like services and routing.
+- Integrating unit tests for component testing.
