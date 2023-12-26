@@ -1,0 +1,71 @@
+/* user-form.component.css */
+:host {
+    font-family: 'Press Start 2P', cursive; /* Uma fonte estilo pixel */
+    color: #00ff00; /* Cor de texto neon verde */
+    background-color: #000000; /* Fundo preto */
+  }
+  
+  input, button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #333333; /* Fundo escuro para os inputs e botões */
+    border: 3px solid #00ff00; /* Bordas neon verde */
+    color: white;
+    padding: 5px;
+    margin: 5px;
+  }
+  
+  input {
+    width: 200px; /* Largura fixa para o campo de entrada */
+  }
+  
+  button {
+    cursor: pointer; /* Estilo do cursor para botões */
+    animation: pulse 1.5s infinite; /* Uma animação simples */
+  }
+  
+  p {
+    border-top: 3px solid #00ff00; /* Uma borda superior para o parágrafo */
+    padding-top: 5px;
+  }
+  
+  /* Animação simples */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 10px #00ff00;
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00ff00;
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 10px #00ff00;
+    }
+  }
+  
+
+/* Estilos para centralizar e criar o box */
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Faz o componente ocupar toda a altura da tela */
+  }
+  
+  .container {
+    width: 33%; /* Define a largura para 1/3 da largura da tela */
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para dar um efeito 3D */
+    background-color: #000000; /* Cor de fundo, ajuste conforme necessário */
+    border: 3px solid #00ff00; /* Bordas no estilo retro */
+  }
+  
+  /* Adaptação para telas menores */
+  @media (max-width: 600px) {
+    .container {
+      width: 80%; /* Aumenta a largura em telas menores */
+    }
+  }
+  
