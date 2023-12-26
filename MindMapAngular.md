@@ -415,3 +415,203 @@
   - **Experimentação**: Praticar com diferentes tipos de seletores em componentes.
   - **Análise de Caso de Uso**: Considerar o tipo de seletor mais apropriado com base na necessidade do componente.
 
+
+## Data Binding em Angular
+
+- **O que é Data Binding?**
+  - **Definição**: Data Binding é o processo de sincronização de dados entre o modelo (lógica de negócios) e a view (template HTML) em uma aplicação Angular.
+  - **Utilidade**: Permite a comunicação bidirecional entre o modelo e a view, facilitando a atualização dinâmica da interface de usuário.
+
+- **String Interpolation**
+  - **Conceito**: Uso de `{{ }}` para exibir dados dinamicamente no template HTML.
+  - **Exemplo**:
+    ```typescript
+    // No componente TypeScript
+    export class AppComponent {
+      title = 'Hello World';
+    }
+    ```
+    ```html
+    <!-- No template HTML -->
+    <h1>{{ title }}</h1>
+    ```
+  - **Uso**: Ideal para exibir valores de texto simples no template.
+  - **Notas Importantes**:
+    - Angular avalia a expressão dentro das chaves e converte o resultado em uma string.
+    - Evite expressões complexas ou lógica de negócios dentro das chaves.
+  - **Erros Comuns**:
+    - Tentar executar operações complexas ou atribuições dentro da interpolação.
+
+- **Property Binding**
+  - **Conceito**: Uso de `[property]="value"` para vincular propriedades de elementos HTML ou componentes Angular a dados no componente TypeScript.
+  - **Exemplo**:
+    ```typescript
+    // No componente TypeScript
+    export class AppComponent {
+      isDisabled = true;
+    }
+    ```
+    ```html
+    <!-- No template HTML -->
+    <button [disabled]="isDisabled">Click Me</button>
+    ```
+  - **Uso**: Ideal para definir propriedades de elementos HTML ou passar dados para propriedades de componentes.
+  - **Notas Importantes**:
+    - O valor entre aspas no property binding é tratado como uma expressão TypeScript, não como uma string literal.
+    - Use property binding para valores que mudam dinamicamente.
+  - **Erros Comuns**:
+    - Confundir property binding (`[property]`) com interpolação de string (`{{ }}`).
+    - Usar property binding com uma string literal sem aspas internas (por exemplo, `[src]="imgPath"` ao invés de `src="{{ imgPath }}"`).
+
+Claro! Vamos criar uma seção no seu mapa mental que detalha quando usar Property Binding e String Interpolation em Angular, explicando as situações ideais para cada um e as principais diferenças entre eles.
+
+### Quando Usar Property Binding e String Interpolation em Angular
+
+#### **String Interpolation**
+  - **Uso Ideal**: Quando você precisa exibir texto ou valores simples em seu template HTML.
+  - **Características**:
+    - Usa a sintaxe `{{ }}` para inserir valores dinâmicos no template.
+    - É uma forma de one-way data binding, do componente para o template.
+    - Converte automaticamente qualquer valor para uma string.
+  - **Exemplos de Uso**:
+    - Exibir o nome do usuário, títulos, mensagens ou qualquer outra informação textual.
+    - Concatenação de strings ou valores para exibição.
+    - Mostrar valores calculados ou resultados de funções simples.
+  - **Quando Evitar**:
+    - Para atualizar propriedades HTML ou de componentes, especialmente aquelas que não são strings.
+
+#### **Property Binding**
+  - **Uso Ideal**: Quando você precisa vincular valores a propriedades de elementos HTML ou componentes Angular.
+  - **Características**:
+    - Usa a sintaxe `[property]="expression"` para vincular valores.
+    - Também é uma forma de one-way data binding, mas permite uma maior variedade de tipos de dados além de strings.
+    - Pode vincular qualquer expressão TypeScript válida a propriedades.
+  - **Exemplos de Uso**:
+    - Definir propriedades de elementos, como `disabled`, `href`, `src`, e atributos personalizados de componentes.
+    - Atualizar estilos e classes de elementos com base em condições ou valores dinâmicos.
+    - Vincular dados a entradas de componentes (Input properties).
+  - **Quando Evitar**:
+    - Para simples exibição de texto ou valores que não necessitam interação com propriedades de elementos ou componentes.
+
+#### Notas Importantes
+
+- **Escolha Baseada na Necessidade**: A decisão entre usar string interpolation ou property binding deve ser baseada na necessidade específica da funcionalidade que você está implementando. Pergunte-se: "Estou apenas exibindo dados ou preciso interagir com propriedades de elementos/componentes?"
+- **Consciência do Contexto**: Em algumas situações, você pode precisar usar ambos em diferentes partes do mesmo componente, dependendo dos requisitos específicos de cada elemento.
+
+### Event Binding em Angular
+
+- **O que é Event Binding?**
+  - **Definição**: Event Binding é uma técnica em Angular que permite escutar e responder a eventos do usuário e do sistema em elementos HTML e componentes Angular.
+  - **Como Funciona**: Usa a sintaxe `(event)="handler()"` para vincular eventos, como cliques do mouse, entradas de teclado e muito mais, a métodos no componente TypeScript.
+
+- **Usando Event Binding**
+  - **Sintaxe Básica**:
+    ```html
+    <button (click)="onClick()">Click me</button>
+    ```
+  - **Exemplo no Componente**:
+    ```typescript
+    export class AppComponent {
+      onClick() {
+        console.log('Button clicked!');
+      }
+    }
+    ```
+  - **Tipos de Eventos**:
+    - Eventos comuns incluem `click`, `keyup`, `keydown`, `mouseover`, etc.
+
+- **Dicas e Melhores Práticas**
+  - **Nome do Método Descritivo**: Nomeie os métodos de tratamento de eventos de maneira clara e descritiva, por exemplo, `onSubmit()`, `onCloseDialog()`, etc.
+  - **Evite Lógica Complexa no Template**: Mantenha a lógica dentro do método do componente, em vez de no template.
+  - **Acesso a Eventos**: Pode-se acessar o objeto de evento passando `$event` como um argumento, por exemplo, `(click)="onClick($event)"`.
+  - **Prevenção de Eventos Padrões**: Use `$event.preventDefault()` para evitar comportamentos padrão do navegador quando necessário.
+
+- **Erros Comuns**
+  - **Esquecer Parênteses**: Esquecer de colocar os parênteses `()` após o nome do método pode fazer com que o método não seja chamado.
+  - **Confusão com String Interpolation e Property Binding**: Lembre-se de que event binding usa parênteses `()`, enquanto string interpolation usa chaves `{{ }}` e property binding usa colchetes `[]`.
+
+- **Casos de Uso Avançados**
+  - **Passando Argumentos para Handlers**: Além de usar `$event`, você pode passar argumentos adicionais para os handlers.
+  - **Event Binding com Diretivas**: Event binding pode ser usado com diretivas Angular para criar interações mais complexas.
+
+### Passando e Usando Dados com Event Binding em Angular
+
+- **Conceito Básico**
+  - **Descrição**: Em Angular, é possível passar dados de um componente para outro através de eventos.
+  - **Utilidade**: Essencial para interações dinâmicas entre componentes, como responder a ações do usuário.
+
+- **Passando Dados com `$event`**
+  - **Uso do `$event`**: O objeto `$event` é uma referência padrão ao objeto de evento gerado por interações do DOM.
+  - **Exemplo Básico**:
+    ```html
+    <!-- No template HTML -->
+    <button (click)="handleClick($event)">Click me</button>
+    ```
+    ```typescript
+    // No componente TypeScript
+    handleClick(event: MouseEvent) {
+      console.log('Button clicked!', event);
+    }
+    ```
+  - **Acessando Propriedades do Evento**: Você pode acessar propriedades específicas do evento, como `event.target.value` para um evento de entrada.
+
+- **Passando Dados Adicionais**
+  - **Personalizando Dados do Evento**: Além de `$event`, você pode passar dados adicionais para o método de tratamento.
+  - **Exemplo com Dados Extras**:
+    ```html
+    <button (click)="handleClick($event, 'Extra Data')">Click me</button>
+    ```
+    ```typescript
+    handleClick(event: MouseEvent, data: string) {
+      console.log('Data:', data);
+    }
+    ```
+
+- **Dicas e Armadilhas Comuns**
+  - **Evite Lógica Complexa no Handler**: Mantenha a lógica no método de tratamento de eventos o mais simples possível.
+  - **Cuidado com o Contexto de `this`**: Lembre-se de que dentro dos handlers de evento, `this` refere-se ao componente, não ao elemento DOM.
+  - **Erros de Tipo**: Ao passar e usar dados com event binding, esteja ciente dos tipos de dados para evitar erros de tipo.
+
+- **Casos de Uso Avançados**
+  - **Comunicação entre Componentes**: Use event binding para emitir dados de um componente filho para um componente pai.
+  - **Interação com Diretivas Customizadas**: Event binding pode ser utilizado para criar interações customizadas com diretivas Angular.
+
+
+
+### Two-Way Data Binding em Angular
+
+- **O que é Two-Way Data Binding?**
+  - **Definição**: Two-Way Data Binding é um recurso do Angular que permite uma comunicação bidirecional entre o template (view) e o componente (model). Isso significa que as mudanças no modelo são refletidas na view, e vice-versa.
+  - **Sintaxe**: Utiliza a diretiva `[(ngModel)]`.
+
+- **Implementação do Two-Way Data Binding**
+  - **Uso de `ngModel`**:
+    - Para usar `ngModel`, é necessário importar o `FormsModule` no módulo onde o componente reside.
+    - Exemplo em um componente:
+      ```html
+      <!-- No template HTML -->
+      <input [(ngModel)]="username">
+      ```
+      ```typescript
+      // No componente TypeScript
+      export class AppComponent {
+        username: string = '';
+      }
+      ```
+  - **Funcionamento**: O valor do input é vinculado à propriedade `username`. Qualquer mudança no campo input atualiza a propriedade `username` e qualquer mudança em `username` é refletida automaticamente no campo input.
+
+- **Importância e Uso**
+  - **Interatividade**: Ideal para formulários e campos de entrada onde a atualização imediata do modelo é necessária.
+  - **Simplificação do Código**: Reduz a necessidade de implementar event binding e property binding separadamente.
+
+- **Considerações e Melhores Práticas**
+  - **Cuidados com a Performance**: O uso excessivo de Two-Way Data Binding pode levar a problemas de performance, pois qualquer mudança na view ou no modelo desencadeia um ciclo de detecção de mudanças.
+  - **Formulários Reativos**: Em formulários complexos, pode ser mais apropriado usar formulários reativos para um controle mais refinado e melhor desempenho.
+
+- **Erros Comuns**
+  - **Esquecimento do `FormsModule`**: Um erro comum é esquecer de importar o `FormsModule` no módulo do componente.
+  - **Uso Indevido em Grandes Formulários**: Em formulários grandes, o Two-Way Data Binding pode não ser a melhor escolha devido a questões de performance e complexidade.
+
+- **Cenários Avançados**
+  - **Personalização com `ngModelChange`**: Para casos mais complexos, pode-se combinar `ngModel` com o evento `ngModelChange` para ter um controle mais fino sobre o ciclo de atualização.
+
