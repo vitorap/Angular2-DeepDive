@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Gerenciador de Tarefas</h1>
+
+  <div class="row">
+    <!-- Task List Component -->
+    <h2><-Task List Component-></h2>
+    <div class="col-md-4">
+      <app-task-list></app-task-list>
+    </div>
+
+    <!-- Task Detail Component -->
+    <div class="col-md-4">
+      <h2><-Task Detail Component-></h2>
+      <app-task-detail [task]="selectedTask"></app-task-detail>
+    </div>
+
+ 
+    <!-- Task Form Component -->
+    <h2><-Task Form Component-></h2>
+    <div class="col-md-4">
+      <h2>{{ selectedTask ? 'Editar Tarefa' : 'Nova Tarefa' }}</h2>
+      <app-task-form [task]="selectedTask"></app-task-form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div *ngIf="task">
+    <h2> Editar Tarefa</h2>
+    <h2>{{ task ? 'Editar Tarefa' : 'Nova Tarefa' }}</h2>
+    <form>
+      <label for="title">Título:</label>
+      <input type="text" id="title" [(ngModel)]="task.title" name="title">
+      
+      <!-- Mais campos aqui -->
+      
+      <button type="submit">{{ task ? 'Atualizar' : 'Criar' }}</button>
+    </form>
+</div>
+  
