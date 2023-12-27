@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms'; // Importe FormsModule
 
 import { AppComponent } from './app.component';
 import { UserFormComponent } from './user-form/user-form.component'; // Caminho correto para o UserFormComponent
+import { LoggerComponent } from './logger/logger.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserFormComponent  
+    UserFormComponent,
+    LoggerComponent  
   ],
   imports: [
     BrowserModule,

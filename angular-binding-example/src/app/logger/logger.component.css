@@ -1,0 +1,11 @@
+.logger-container {
+    font-size: 0.8em; /* Tamanho da fonte menor */
+    color: #808080; /* Cor cinza para logs */
+    font-family: 'Press Start 2P', cursive; /* Mantendo a fonte retro */
+    margin-top: 10px;
+  }
+  
+  .log-entry {
+    margin-bottom: 5px;
+  }
+  

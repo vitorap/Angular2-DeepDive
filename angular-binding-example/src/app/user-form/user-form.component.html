@@ -3,4 +3,13 @@
   <p *ngIf="showParagraph; else noName">Your username is: {{ username }}</p>
   <ng-template #noName><p>I dont know your name</p></ng-template>
   <button (click)="resetUsername()" [disabled]="!username">Reset Username</button>
+
+
+  <button (click)="toggleLogs()">Display Log</button>
+
+  <app-logger *ngIf="showLogs" [logs]="logs"></app-logger>
+
+
+
 </div>
+

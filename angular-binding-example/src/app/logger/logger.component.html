@@ -1,0 +1,6 @@
+<div class="logger-container">
+    <div *ngFor="let log of logs.slice().reverse(); let i = index" class="log-entry"
+        [ngStyle]="{'opacity': getOpacity(i)}">
+        {{ log.timestamp | date: 'medium' }}: {{ log.name }}
+    </div>
+</div>

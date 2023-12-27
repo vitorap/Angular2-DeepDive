@@ -669,3 +669,48 @@ Claro! Vamos criar uma seção no seu mapa mental que detalha quando usar Proper
   - **HostListeners e HostBindings**: Use `@HostListener` e `@HostBinding` para ouvir e vincular a eventos ou propriedades do elemento hospedeiro da diretiva.
   - **Diretivas com Injeção de Dependência**: Diretivas podem injetar serviços para reutilizar lógica de negócios ou acessar dados.
 
+## . Styling Elements Dynamically with ngStyle
+
+- **Conceito Básico**:
+  - `ngStyle` é uma diretiva Angular que permite aplicar estilos dinamicamente a um elemento HTML com base em uma expressão ou uma condição.
+  
+- **Como Funciona**:
+  - A diretiva é usada como um atributo em elementos HTML.
+  - Aceita um objeto JavaScript/TypeScript cujas chaves são nomes de propriedades CSS e os valores são expressões que retornam os valores dessas propriedades.
+
+- **Exemplo de Uso**:
+  ```html
+  <div [ngStyle]="{'font-size': fontSize + 'px', 'color': textColor}">Texto Exemplo</div>
+  ```
+  - `fontSize` e `textColor` podem ser propriedades do componente que controlam o tamanho da fonte e a cor do texto, respectivamente.
+
+- **Aplicações Comuns**:
+  - Mudar estilos com base em ações do usuário, como hover ou clique.
+  - Alterar a aparência de um elemento com base em dados dinâmicos ou condições.
+
+- **Pontos de Atenção**:
+  - Cuidado com a complexidade: estilos muito complexos podem tornar o template menos legível.
+  - Considere a performance: mudanças frequentes nos estilos podem afetar a performance.
+
+## Applying CSS Classes Dynamically with ngClass
+
+- **Conceito Básico**:
+  - `ngClass` é uma diretiva Angular que permite adicionar ou remover classes CSS de um elemento de maneira dinâmica.
+
+- **Como Funciona**:
+  - Similar à `ngStyle`, `ngClass` é usado como um atributo.
+  - Pode receber strings, arrays, ou objetos para definir quais classes serão aplicadas.
+
+- **Exemplo de Uso**:
+  - Com String: `<div [ngClass]="'first-class second-class'">...</div>`
+  - Com Array: `<div [ngClass]="['first-class', 'second-class']">...</div>`
+  - Com Objeto: `<div [ngClass]="{'first-class': condition, 'second-class': !condition}">...</div>`
+  - `condition` é uma propriedade do componente que determina se a classe deve ser aplicada.
+
+- **Aplicações Comuns**:
+  - Adicionar classes para destacar, esconder ou estilizar elementos com base em lógica de negócios ou interações do usuário.
+  - Utilizado para alternar entre estilos em diferentes estados de um componente ou dados.
+
+- **Pontos de Atenção**:
+  - Manter um bom gerenciamento das classes para evitar conflitos e dificuldades de manutenção.
+  - Usar com moderação para manter a clareza e a previsibilidade do comportamento dos estilos.
