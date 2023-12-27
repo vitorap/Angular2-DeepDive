@@ -1,0 +1,71 @@
+/* navbar.component.css */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.navbar {
+  background-color: black;
+  font-family: 'VT323', monospace; /* Esta é uma fonte que se assemelha às fontes de terminais antigos */
+  color: #33ff33;
+  border-bottom: 3px solid #33ff33;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Isso distribui o espaço igualmente */
+}
+
+.navbar-brand {
+  color: #33ff33;
+  font-size: 1.5em;
+  position: relative;
+  padding-right: 10px; /* Espaço para o cursor */
+  margin-right: auto; /* Empurra tudo após a marca para a direita */
+}
+
+.navbar-brand::after {
+    content: '_';
+    animation: blinkCursor 1s infinite step-end alternate;
+    opacity: 1; /* Começa visível */
+    margin-left: 0.2rem; /* Espaço entre o texto e o cursor */
+  }
+  
+  @keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+
+.navbar-nav {
+  flex-direction: row-reverse; /* Inverte a ordem dos itens de navegação */
+  display: flex;
+  align-items: center; 
+}
+
+.nav-link {
+  color: #33ff33 !important; /* Sobrepor estilos do Bootstrap */
+  transition: transform 0.2s ease-in-out; /* Animação suave para hover */
+}
+
+.nav-link:hover {
+  transform: scale(1.2); /* Aumenta ligeiramente o link quando passa o mouse */
+}
+
+.retro-button {
+    color: #33ff33;
+    border: 1px solid #33ff33;
+    background-color: transparent;
+    margin-left: 5px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    padding: 0.375rem 0.75rem; /* Bootstrap padrão para botões, ajuste conforme necessário */
+  }
+  
+  .retro-button:hover, .retro-button:focus {
+    background-color: #33ff33;
+    color: black;
+    transform: translateY(-2px);
+    outline: none; /* Remove o contorno padrão do Bootstrap no focus */
+  }
+  
+  /* Estilização quando o botão é pressionado */
+  .retro-button:active {
+    transform: translateY(1px);
+  }
+
+
