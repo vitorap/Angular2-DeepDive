@@ -1,7 +1,5 @@
 <div class="container">
-    <!-- Todo o seu conteúdo atual aqui -->
-    <input [(ngModel)]="username" type="text" placeholder="Enter username">
-    <p>Your username is: {{ username }}</p>
-    <button (click)="resetUsername()" [disabled]="!username">Reset Username</button>
-  </div>
-  
+  <input [(ngModel)]="username" type="text" placeholder="Enter username" (keydown.enter)="onEnter()">
+  <p *ngIf="showParagraph">Your username is: {{ username }}</p>
+  <button (click)="resetUsername()" [disabled]="!username">Reset Username</button>
+</div>

@@ -615,3 +615,57 @@ Claro! Vamos criar uma seção no seu mapa mental que detalha quando usar Proper
 - **Cenários Avançados**
   - **Personalização com `ngModelChange`**: Para casos mais complexos, pode-se combinar `ngModel` com o evento `ngModelChange` para ter um controle mais fino sobre o ciclo de atualização.
 
+
+## Directives em Angular
+
+- **O que são Directives?**
+  - **Definição**: Diretivas são classes que adicionam comportamento adicional aos elementos no DOM. No Angular, elas são usadas para manipular elementos HTML e componentes de maneiras diversas.
+  - **Tipos de Diretivas**:
+    - **Componentes**: Diretivas com um template.
+    - **Diretivas Estruturais**: Alteram a estrutura do DOM adicionando ou removendo elementos (Ex: `*ngFor`, `*ngIf`).
+    - **Diretivas de Atributo**: Alteram a aparência ou comportamento de um elemento, componente ou outra diretiva (Ex: `[ngStyle]`, `[ngClass]`).
+
+- **Como Usar Diretivas**
+  - **Diretivas Estruturais**:
+    ```html
+    <div *ngIf="condition">Only shows if 'condition' is true</div>
+    <li *ngFor="let item of items">{{ item }}</li>
+    ```
+  - **Diretivas de Atributo**:
+    ```html
+    <div [ngStyle]="{ 'font-size': '12px' }">Styled element</div>
+    <div [ngClass]="{'active': isActive}">This element's class is dynamic</div>
+    ```
+
+- **Criando Diretivas Personalizadas**
+  - **Comando CLI**: `ng generate directive my-new-directive`
+  - **Implementação**:
+    ```typescript
+    import { Directive, ElementRef, Renderer2 } from '@angular/core';
+
+    @Directive({
+      selector: '[appHighlight]'
+    })
+    export class HighlightDirective {
+      constructor(el: ElementRef, renderer: Renderer2) {
+        renderer.setStyle(el.nativeElement, 'backgroundColor', 'yellow');
+      }
+    }
+    ```
+    ```html
+    <p appHighlight>Text with a yellow highlight</p>
+    ```
+
+- **Dicas e Melhores Práticas**
+  - **Seletores de Diretiva**: Use prefixos de seletor personalizados para evitar conflitos com nomes de diretivas nativas ou de terceiros.
+  - **Responsabilidades**: Mantenha as diretivas focadas em tarefas específicas e reutilizáveis.
+  - **Testes**: Assim como componentes, teste suas diretivas para garantir que elas se comportem como esperado.
+
+- **Erros Comuns**
+  - **Mal-entendidos de Scope**: Lembre-se de que diretivas estruturais podem criar seus próprios escopos, então variáveis podem não se comportar como você espera.
+  - **Overuse**: Evite criar diretivas para funcionalidades que podem ser alcançadas com uma combinação simples de propriedades e eventos já existentes.
+
+- **Uso Avançado**
+  - **HostListeners e HostBindings**: Use `@HostListener` e `@HostBinding` para ouvir e vincular a eventos ou propriedades do elemento hospedeiro da diretiva.
+  - **Diretivas com Injeção de Dependência**: Diretivas podem injetar serviços para reutilizar lógica de negócios ou acessar dados.
+
