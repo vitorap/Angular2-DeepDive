@@ -15,14 +15,14 @@ export class TaskFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskForm = new FormGroup({
-      title: new FormControl(''),
-      description: new FormControl(''),
-      status: new FormControl(TaskStatus.Planned), // Acesso a TaskStatus através de Task
-      priority: new FormControl(1),
-      dueDate: new FormControl(null)
+      title: new FormControl(this.task ? this.task.title : ''),
+      description: new FormControl(this.task ? this.task.description : ''),
+      status: new FormControl(this.task ? this.task.status : TaskStatus.Planned),
+      priority: new FormControl(this.task ? this.task.priority : 1),
+      dueDate: new FormControl(this.task && this.task.dueDate ? this.task.dueDate : null)
     });
   }
-
+  
   onAddTask(): void {
     const newTask = new Task(
       this.taskForm.value.title,

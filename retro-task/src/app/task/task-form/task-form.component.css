@@ -1,27 +1,111 @@
-.container {
+/* task-form.component.css */
+.retro-style {
     background-color: black;
     color: #33ff33;
-    border: 1px solid #33ff33;
-    padding: 20px;
+    font-family: 'VT323', monospace;
+    /* outros estilos retro */
   }
   
-  .form-control, .btn {
-    background-color: transparent;
+  .retro-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .retro-input, .retro-button, .retro-textarea {
+    background-color: #000;
     border: 1px solid #33ff33;
     color: #33ff33;
+    width: 100%; /* Faz com que o input ocupe toda a largura disponível */
+    margin-bottom: 10px; /* Espaço entre os campos */
   }
   
-  .form-control:focus, .btn:focus {
-    background-color: #33ff33;
-    color: black;
-  }
-  
-  .btn-primary {
+  .retro-input:focus, .retro-button:focus {
     border-color: #33ff33;
+    outline: none;
   }
   
-  .btn-primary:hover {
+  .retro-button {
+    padding: 5px 15px;
+    cursor: pointer;
+    /* estilos adicionais para o botão retro */
+  }
+  
+  .retro-button:hover {
     background-color: #33ff33;
     color: black;
   }
   
+  /* Ajustes responsivos */
+  @media (max-width: 720px) {
+    .retro-input, .retro-button {
+      width: auto; /* Permite que os inputs voltem ao tamanho original em telas menores */
+    }
+  }
+  
+/* Estilos para inputs de texto e textarea */
+.retro-input, .retro-textarea {
+    background-color: #000;
+    border: 1px solid #33ff33;
+    color: #33ff33;
+    font-family: 'VT323', monospace; /* ou sua fonte de escolha */
+    padding: 5px;
+  }
+  
+  /* Estilos para manter o botão do seletor de datas do input de data */
+  .retro-date {
+    background-color: #000;
+    border: 1px solid #33ff33;
+    color: #33ff33;
+    font-family: 'VT323', monospace; /* ou sua fonte de escolha */
+    padding: 5px;
+    -webkit-appearance: none; /* Remove estilos padrão para Webkit/Blink */
+    margin: 0; /* Remover qualquer margem padrão se necessário */
+    position: relative;
+  }
+  
+  /* Webkit/Blink browsers */
+  .retro-date::-webkit-datetime-edit-fields-wrapper {
+    padding: 0; /* Remove o preenchimento interno no Chrome */
+  }
+  
+  .retro-date::-webkit-datetime-edit-text {
+    color: #33ff33; /* Cor do texto dentro do input */
+    padding: 0 0.3em; /* Espaçamento para o texto dentro do input */
+  }
+  
+  .retro-date::-webkit-datetime-edit-month-field,
+  .retro-date::-webkit-datetime-edit-day-field,
+  .retro-date::-webkit-datetime-edit-year-field {
+    color: #33ff33; /* Cor dos campos de mês, dia e ano */
+  }
+  
+  .retro-date::-webkit-inner-spin-button {
+    display: none; /* Oculta o botão de spin interno */
+  }
+  
+  .retro-date::-webkit-calendar-picker-indicator {
+    filter: invert(75%) sepia(100%) saturate(1000%) hue-rotate(80deg); /* Ajuste conforme necessário para obter a cor verde */
+    background-color: transparent; /* Definindo o fundo como transparente */
+  }
+  
+  
+  
+  /* Firefox */
+  .retro-date::-moz-focus-inner {
+    border: 0; /* Remove o borda interna no Firefox */
+  }
+  
+  /* IE */
+  .retro-date::-ms-clear {
+    display: none; /* Oculta o ícone 'x' no IE */
+  }
+  
+  .retro-date::-ms-reveal {
+    display: none; /* Oculta o ícone de senha no IE */
+  }
+  
+
+  .container {
+    max-width: 320px; /* ou outra medida que se adeque ao design */
+    margin: auto; /* Isso centralizará o contêiner se ele for menor que o espaço disponível */
+  }

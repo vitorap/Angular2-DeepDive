@@ -1,0 +1,14 @@
+/* Estilos globais */
+body, .retro-style {
+    background-color: black;
+    color: #33ff33;
+    font-family: 'VT323', monospace; /* Certifique-se de que a fonte está importada */
+  }
+  
+  @media (max-width: 330px) {
+    .col-md-4 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
