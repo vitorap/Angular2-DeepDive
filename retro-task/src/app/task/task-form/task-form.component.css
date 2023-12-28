@@ -1,0 +1,27 @@
+.container {
+    background-color: black;
+    color: #33ff33;
+    border: 1px solid #33ff33;
+    padding: 20px;
+  }
+  
+  .form-control, .btn {
+    background-color: transparent;
+    border: 1px solid #33ff33;
+    color: #33ff33;
+  }
+  
+  .form-control:focus, .btn:focus {
+    background-color: #33ff33;
+    color: black;
+  }
+  
+  .btn-primary {
+    border-color: #33ff33;
+  }
+  
+  .btn-primary:hover {
+    background-color: #33ff33;
+    color: black;
+  }
+  

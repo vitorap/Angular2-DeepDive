@@ -1,0 +1,14 @@
+<div class="task-list-container">
+    <h2>Lista de Tarefas</h2>
+    <button class="btn btn-success mb-3 retro-button" (click)="openTaskForm()">Adicionar Tarefa</button>
+
+    <div *ngIf="isFormVisible">
+        <app-task-form (taskAdded)="handleTaskAdded($event)"></app-task-form>
+        <button class="btn btn-secondary" (click)="closeTaskForm()">Cancelar</button>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item retro-list-item" *ngFor="let task of tasks">
+            <span class="task-title">{{ task.title }}</span> - <span class="task-status">{{ task.status }}</span>
+        </li>
+    </ul>
+</div>

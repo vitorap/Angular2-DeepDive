@@ -1,0 +1,42 @@
+/* task-list.component.css */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.task-list-container {
+  font-family: 'VT323', monospace;
+  color: #33ff33;
+  background-color: black;
+  padding: 20px;
+  border: 1px solid #33ff33;
+  box-shadow: 0 0 10px #33ff33;
+}
+
+.task-list-container h2 {
+  border-bottom: 2px solid #33ff33;
+  padding-bottom: 10px;
+}
+
+.retro-button {
+  background-color: transparent;
+  border: 1px solid #33ff33;
+  color: #33ff33;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.retro-button:hover {
+  background-color: #33ff33;
+  color: black;
+}
+
+.list-group-item.retro-list-item {
+  background-color: transparent;
+  border: 1px solid #33ff33;
+  margin-bottom: 5px; /* Espaço entre itens da lista */
+}
+
+.task-title {
+  font-weight: bold;
+}
+
+.task-status {
+  float: right;
+}
